@@ -17,6 +17,22 @@
     <keep-alive>
       <component :is="currentComponent" />
     </keep-alive>
+
+    <div>
+      <h2>イベントのフォーム</h2>
+      <label for="タイトル">タイトル</label>
+      <input type="text" id="title" v-model="eventData.title" />
+      <p>タイトル: {{eventData.title}}</p>
+
+      <label for="maxNumber">最大人数</label>
+      <input type="number" id="maxNumber" v-model.number="eventData.maxNumber" />
+      <p>最大人数: {{eventData.maxNumber}}</p>
+
+        <label for="host">ホスト</label>
+      <input type="text" id="host" v-model.trim="eventData.host" />
+      <p>ホスト: {{eventData.host}}</p>
+
+    </div>
   </div>
 </template>
 
@@ -30,6 +46,11 @@
       return {
         number: 10,
         currentComponent: 'HomeView',
+        eventData: {
+          title: 'タイトル',
+          maxNumber: 0,
+          host: 'ホスト',
+        }
       }
     },
     components: {
