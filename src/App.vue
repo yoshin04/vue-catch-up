@@ -10,19 +10,30 @@
     </LikeHeader>
     <LikeNumber :totalNumber="number" @inclement-event="incrementCount" />
     <LikeNumber :totalNumber="number" @inclement-event="incrementCount" />
+
+    <button @click="currentComponent='HomeView'">Home</button>
+    <button @click="currentComponent='AboutView'">About</button>
+
+    <component :is="currentComponent" />
   </div>
 </template>
 
 <script>
   import LikeHeader from './components/LikeHeader.vue'
+  import HomeView from './components/HomeView.vue'
+  import AboutView from './components/AboutView.vue'
+
   export default {
     data: function() {
       return {
-        number: 10
+        number: 10,
+        currentComponent: 'HomeView',
       }
     },
     components: {
       LikeHeader,
+      HomeView,
+      AboutView,
     },
     methods: {
       incrementCount() {
