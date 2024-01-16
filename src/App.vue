@@ -4,7 +4,7 @@
       <template v-slot:title>
         <h1>トータルいいね数</h1>
       </template>
-      <template v-slot:count>
+      <template #:count>
         <p>{{ number}}</p>
       </template>
     </LikeHeader>
