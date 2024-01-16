@@ -14,7 +14,9 @@
     <button @click="currentComponent='HomeView'">Home</button>
     <button @click="currentComponent='AboutView'">About</button>
 
-    <component :is="currentComponent" />
+    <keep-alive>
+      <component :is="currentComponent" />
+    </keep-alive>
   </div>
 </template>
 
