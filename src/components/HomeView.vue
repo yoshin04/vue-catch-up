@@ -1,3 +1,6 @@
 <template>
-  <h1>Home</h1>
+  <p v-border:solid.round="{
+    width: '5px',
+    color: 'red'  
+  }">Home</p>
 </template>
