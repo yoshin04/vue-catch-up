@@ -1,6 +1,11 @@
 <template>
   <div>
-    <LikeHeader>
+    <nav>
+      <router-link to="/" class="link" active-class="link--active" exact>Home</router-link>
+      <router-link to="/users" class="link" active-class="link--active" exact>Users</router-link>
+    </nav>
+    <router-view></router-view>
+    <!-- <LikeHeader>
       <template v-slot:title>
         <h1>トータルいいね数</h1>
       </template>
@@ -56,45 +61,54 @@
         <option v-for="location in locations" :key="location">{{location}}</option>
       </select>
       <p>{{eventData.location}}</p>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-  import LikeHeader from './components/LikeHeader.vue'
-  import HomeView from './components/HomeView.vue'
-  import AboutView from './components/AboutView.vue'
-  import EventTitle from './components/EventTitle.vue'
+  // import LikeHeader from './components/LikeHeader.vue'
+  // import HomeView from './components/HomeView.vue'
+  // import AboutView from './components/AboutView.vue'
+  // import EventTitle from './components/EventTitle.vue'
 
-  export default {
-    data: function() {
-      return {
-        number: 10,
-        currentComponent: 'HomeView',
-        locations: ['東京', '神奈川'],
-        eventData: {
-          title: 'タイトル',
-          maxNumber: 0,
-          host: 'ホスト',
-          detail: '',
-          isPrivate: false,
-          target: [],
-          fee: '無料',
-          location: '東京'
-        }
-      }
-    },
-    components: {
-      LikeHeader,
-      HomeView,
-      AboutView,
-      EventTitle,
-    },
-    methods: {
-      incrementCount() {
-        this.number += 1;
-      }
-    }
-  }
+  // export default {
+  //   data: function() {
+  //     return {
+  //       number: 10,
+  //       currentComponent: 'HomeView',
+  //       locations: ['東京', '神奈川'],
+  //       eventData: {
+  //         title: 'タイトル',
+  //         maxNumber: 0,
+  //         host: 'ホスト',
+  //         detail: '',
+  //         isPrivate: false,
+  //         target: [],
+  //         fee: '無料',
+  //         location: '東京'
+  //       }
+  //     }
+  //   },
+  //   components: {
+  //     LikeHeader,
+  //     HomeView,
+  //     AboutView,
+  //     EventTitle,
+  //   },
+  //   methods: {
+  //     incrementCount() {
+  //       this.number += 1;
+  //     }
+  //   }
+  // }
 </script>
+
+<style scoped>
+  .link {
+    margin-right: 10px;
+  }
+  .link--active {
+    font-size: 20px;
+  }
+</style>
 
