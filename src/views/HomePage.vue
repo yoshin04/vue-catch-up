@@ -7,22 +7,30 @@
     <button @click="increment(1)">+1</button>
     <button @click="decrement(1)">-1</button>
     <button @click="actionIncrement(2)">action +2</button>
+
+    <input type="text" v-model="message" />
+    <p>{{ message }}</p>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapMutations, mapActions } from 'vuex';
   
 export default {
   computed: {
     ...mapGetters(['doubleCount', 'tripleCount']),
-
+    message: {
+      get() {
+        return this.$store.getters.message
+      },
+      set(value) {
+        this.$store.dispatch('updateMessage', value)
+      }
+    }
   },
   methods: {
     ...mapMutations(['increment', 'decrement']),
-    actionIncrement(number) {
-      this.$store.dispatch('increment', number)
-    },
+    ...mapActions(['actionIncrement']),
     toUsers() {
       this.$router.push("/users");
     },
@@ -31,7 +39,7 @@ export default {
     },
     decrement() {
       this.$store.commit('decrement', 1)
-    }
+    },
   }
 }
 </script>
